@@ -1,0 +1,3 @@
+python wifi.py
+
+PAUSE

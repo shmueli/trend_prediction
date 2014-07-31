@@ -1,0 +1,3 @@
+mongoexport  --query "{ $query: {CID: {$gt:0}}, $orderby: {closeDate: 1} }" -d trades -c trades --fields positionID,CID,openDate,closeDate,parentPositionID,origParentPositionID,mirrorID,parentCID,buyOrSell,buyCurAbbreviation,sellCurAbbreviation,amount,leverage,unitsDecimal,openRate,closeRate,spread,nProfit --csv --out d:\trades.csv
+
+mongoexport  --query "{ $query: {$and: [{CID: {$gt:0}},{parentCID: {$gt:0}},{mirrorID: {$gt:0}}]}, $orderby: {closeDate: 1} }" -d trades -c mirror --fields CID,parentCID,mirrorID,openDate,closeDate --csv --out d:\mirror.csv
